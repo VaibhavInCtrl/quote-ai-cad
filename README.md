@@ -2,7 +2,7 @@
 
 QuoteAI is a full-stack web app that turns an uploaded STL file into a structured manufacturing quote estimate. It parses part geometry on the backend, then sends the extracted stats to Claude to return ranked manufacturing processes, material suggestions, estimated price, lead time, and DFM guidance.
 
-![QuoteAI screenshot placeholder](./docs/screenshot-placeholder.svg)
+![QuoteAI screenshot placeholder](./docs/screenshot-placeholder.png)
 
 ## Stack
 
