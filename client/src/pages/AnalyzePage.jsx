@@ -228,7 +228,7 @@ export default function AnalyzePage() {
                   Next Step
                 </p>
                 <h2 className="mt-2 font-display text-[clamp(2rem,4vw,3.25rem)] font-bold leading-tight text-ink">
-                  Quote results open on a dedicated page
+                  Check quote results
                 </h2>
                 <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-600">
                   Keep this upload view focused on analysis. Once the quote is
