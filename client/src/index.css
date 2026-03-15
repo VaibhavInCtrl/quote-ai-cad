@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color: #0f172a;
+  background:
+    radial-gradient(circle at top left, rgba(245, 184, 61, 0.32), transparent 32%),
+    radial-gradient(circle at top right, rgba(55, 81, 255, 0.14), transparent 28%),
+    linear-gradient(180deg, #fffdf7 0%, #f5efe5 100%);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: "IBM Plex Sans", sans-serif;
+  color: #0f172a;
+  background:
+    radial-gradient(circle at 10% 10%, rgba(245, 184, 61, 0.4), transparent 22%),
+    radial-gradient(circle at 90% 8%, rgba(55, 81, 255, 0.15), transparent 24%),
+    linear-gradient(180deg, #fffdf7 0%, #f2ebde 100%);
+}
+
+#root {
+  min-height: 100vh;
+}
+
+::selection {
+  color: white;
+  background: #ff6a3d;
+}
+
+@media print {
+  body {
+    background: white;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .print-panel {
+    box-shadow: none !important;
+    border: 1px solid rgba(15, 23, 42, 0.15);
+  }
+}
