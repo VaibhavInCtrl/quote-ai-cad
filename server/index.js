@@ -1,3 +1,6 @@
+import path from "path";
+import { fileURLToPath } from "url";
+
 import cors from "cors";
 import dotenv from "dotenv";
 import express from "express";
@@ -5,7 +8,11 @@ import express from "express";
 import analyzeRouter from "./routes/analyze.js";
 import quoteRouter from "./routes/quote.js";
 
-dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+dotenv.config({ path: path.resolve(__dirname, "../.env") });
+dotenv.config({ path: path.resolve(__dirname, ".env"), override: false });
 
 const app = express();
 const port = Number(process.env.PORT) || 4000;

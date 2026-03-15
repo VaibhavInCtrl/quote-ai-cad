@@ -83,13 +83,13 @@ export default function QuoteResults({ geometry, quote }) {
 
   return (
     <div className="space-y-6">
-      <section className="rounded-[2rem] border border-white/80 bg-white/70 p-6 shadow-panel backdrop-blur print-panel">
-        <div className="flex flex-col gap-6 xl:flex-row xl:items-start xl:justify-between">
-          <div>
+      <section className="overflow-hidden rounded-[2rem] border border-white/80 bg-white/70 p-6 shadow-panel backdrop-blur print-panel">
+        <div className="grid gap-6 xl:grid-cols-[minmax(0,1.15fr)_minmax(20rem,0.85fr)]">
+          <div className="min-w-0">
             <p className="text-sm font-medium uppercase tracking-[0.24em] text-slate-500">
               Quote Output
             </p>
-            <h3 className="mt-2 font-display text-4xl font-bold text-ink">
+            <h3 className="mt-2 font-display text-[clamp(2.2rem,4vw,4rem)] font-bold leading-tight text-ink">
               Manufacturing estimate for a {complexity.level} complexity part
             </h3>
             <p className="mt-4 max-w-2xl text-sm leading-6 text-slate-600">
@@ -103,7 +103,7 @@ export default function QuoteResults({ geometry, quote }) {
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
                 Estimated price
               </p>
-              <div className="mt-3 inline-flex rounded-full bg-ember px-4 py-2 font-display text-xl font-bold text-white">
+              <div className="mt-3 inline-flex rounded-full bg-ember px-4 py-2 font-display text-lg font-bold text-white lg:text-xl">
                 {currency(quote?.estimated_price_usd?.min)} -{" "}
                 {currency(quote?.estimated_price_usd?.max)}
               </div>
@@ -129,7 +129,7 @@ export default function QuoteResults({ geometry, quote }) {
           </div>
         </div>
 
-        <div className="mt-8 grid gap-4 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5 md:grid-cols-4">
+        <div className="mt-8 grid gap-4 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-5 md:grid-cols-2 2xl:grid-cols-4">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
               Part size
@@ -164,7 +164,7 @@ export default function QuoteResults({ geometry, quote }) {
         </div>
       </section>
 
-      <section className="rounded-[2rem] border border-white/80 bg-white/70 p-6 shadow-panel backdrop-blur print-panel">
+      <section className="overflow-hidden rounded-[2rem] border border-white/80 bg-white/70 p-6 shadow-panel backdrop-blur print-panel">
         <div className="flex flex-wrap gap-3">
           {processes.map((process, index) => (
             <button
@@ -183,8 +183,8 @@ export default function QuoteResults({ geometry, quote }) {
         </div>
 
         {selectedProcess ? (
-          <div className="mt-6 grid gap-6 xl:grid-cols-[1.15fr_0.85fr]">
-            <article className="rounded-[1.75rem] border border-slate-200 bg-white p-6">
+          <div className="mt-6 grid gap-6 2xl:grid-cols-[minmax(0,1.12fr)_minmax(18rem,0.88fr)]">
+            <article className="min-w-0 rounded-[1.75rem] border border-slate-200 bg-white p-6">
               <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
                 Recommended process
               </p>
@@ -200,7 +200,7 @@ export default function QuoteResults({ geometry, quote }) {
                 {materials.map((material) => (
                   <div
                     key={material.name}
-                    className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-4"
+                    className="min-w-0 rounded-[1.5rem] border border-slate-200 bg-slate-50 p-4"
                   >
                     <h5 className="font-display text-xl font-bold text-ink">
                       {material.name}

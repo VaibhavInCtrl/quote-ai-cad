@@ -8,7 +8,7 @@ QuoteAI is a full-stack web app that turns an uploaded STL file into a structure
 
 - Frontend: React + Vite + Tailwind CSS
 - Backend: Node.js + Express
-- LLM: Anthropic Claude (`claude-sonnet-4-20250514`)
+- LLM: Anthropic Claude (`claude-sonnet-4-6`)
 - STL parsing: `stl-parser`
 
 ## Project structure
@@ -27,6 +27,7 @@ README.md
 - Drag-and-drop STL upload with file picker fallback
 - Geometry extraction for bounding box, volume, surface area, and triangle count
 - Separate `POST /api/analyze` and `POST /api/quote` flow for progressive UX
+- Dedicated quote results route after generation instead of rendering analysis and estimate on one screen
 - Structured quote rendering with process ranking, price band, lead time, materials, DFM tips, and mock suppliers
 - Print-friendly "Export as PDF" action
 - Error handling for invalid files, parse failures, and LLM/API failures
@@ -50,9 +51,12 @@ cp .env.example .env
 Required variables:
 
 - `ANTHROPIC_API_KEY`
+- `ANTHROPIC_MODEL`
 - `PORT`
 - `CLIENT_URL`
 - `VITE_API_URL`
+
+The server also accepts `server/.env` if you prefer to keep backend secrets scoped to the API workspace.
 
 ### 3. Run the app
 
@@ -64,6 +68,11 @@ That starts:
 
 - Express API on `http://localhost:4000`
 - React client on `http://localhost:5173`
+
+UX flow:
+
+- Upload and analyze on `/`
+- After quote generation, the app redirects to `/quote`
 
 ## API
 
